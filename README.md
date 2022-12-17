@@ -1,2 +1,3 @@
 Simple calculator project,inspired by standart microsoft calculator
-![1232](https://user-images.githubusercontent.com/89636691/208210564-ff7ee184-af31-43c8-ad82-6cb9045e1daf.png)
+
+![1232](https://user-images.githubusercontent.com/89636691/208212682-2a7bf306-5b0b-40fe-990d-41272d8ecb35.png)
