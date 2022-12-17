@@ -294,8 +294,8 @@
                                 </Style>
                         </Button.Resources>
                 </Button>
-                <Button x:Name="ButtonKoma"
-                        Content=","
+                <Button x:Name="ButtonDot"
+                        Content="."
                         Foreground="Azure"
                         FontSize="25"
                         Grid.Row="2"
@@ -303,7 +303,8 @@
                         Background="#323232"
                         BorderBrush="#323232"
                         FontFamily="Arial Black"
-                        Margin="1">
+                        Margin="1"
+                        Click="ButtonKoma_OnClick">
                 <Button.Resources>
                         <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>

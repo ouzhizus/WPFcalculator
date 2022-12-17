@@ -42,11 +42,11 @@ namespace newWPFCalculator
         {
             return (double)new System.Xml.XPath.XPathDocument
                 (new StringReader("<r/>")).CreateNavigator().Evaluate
-            (string.Format("number({0})", new
+            ($"number({new
                     System.Text.RegularExpressions.Regex(@"([\+\-\*])")
                 .Replace(expression, " ${1} ")
                 .Replace("/", " div ")
-                .Replace("%", " mod ")));
+                .Replace("%", " mod ")})");
         }
         private void ButtonTwo_OnClick(object sender, RoutedEventArgs e)
         {
@@ -158,15 +158,17 @@ namespace newWPFCalculator
 
         private void Finalize_OnClick(object sender, RoutedEventArgs e)
         {
-            if (ResultLabel.Content.ToString() == "0")
+            if (ResultLabel.Content.ToString()!.Contains(','))
+            {
+                double result = Evaluate(ResultLabel.Content.ToString()!);
+                ResultLabel.Content = "hello";
+            }
+            else if (ResultLabel.Content.ToString() == "0")
             {
                 ResultLabel.Content = "Wrong input";
             }
             else if (ResultLabel.Content.ToString() != String.Empty)
             {
-                //DataTable dt = new DataTable();
-                //object result = dt.Compute(ResultLabel.Content.ToString(), "'");
-                //ResultLabel.Content = result;
                 double result = Evaluate(ResultLabel.Content.ToString()!);
                 ResultLabel.Content = $"{result}";
             }
@@ -253,6 +255,18 @@ namespace newWPFCalculator
             else
             {
                 ResultLabel.Content = $"{ResultLabel.Content})";
+            }
+        }
+
+        private void ButtonKoma_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (ResultLabel.Content.ToString() == "0")
+            {
+                ResultLabel.Content = "0";
+            }
+            else
+            {
+                ResultLabel.Content = $"{ResultLabel.Content}.";
             }
         }
     }
