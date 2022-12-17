@@ -311,8 +311,8 @@
                         </Style>
                 </Button.Resources>
         </Button>
-        <Button x:Name="ButtonPercent"
-                Content="%"
+        <Button x:Name="ButtonNegative"
+                Content="+/-"
                 FontSize="20"
                 Foreground="Azure"
                 Grid.Row="2"
@@ -320,7 +320,8 @@
                 Background="#323232"
                 FontFamily="Arial Black"
                 BorderBrush="#323232"
-                Margin="1">
+                Margin="1"
+                Click="ButtonNegative_OnClick">
                 <Button.Resources>
                         <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>

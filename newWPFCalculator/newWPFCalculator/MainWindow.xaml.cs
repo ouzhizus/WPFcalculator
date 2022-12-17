@@ -158,16 +158,11 @@ namespace newWPFCalculator
 
         private void Finalize_OnClick(object sender, RoutedEventArgs e)
         {
-            if (ResultLabel.Content.ToString()!.Contains(','))
-            {
-                double result = Evaluate(ResultLabel.Content.ToString()!);
-                ResultLabel.Content = "hello";
-            }
-            else if (ResultLabel.Content.ToString() == "0")
+            if (ResultLabel.Content.ToString() == "0")
             {
                 ResultLabel.Content = "Wrong input";
             }
-            else if (ResultLabel.Content.ToString() != String.Empty)
+            else
             {
                 double result = Evaluate(ResultLabel.Content.ToString()!);
                 ResultLabel.Content = $"{result}";
@@ -267,6 +262,20 @@ namespace newWPFCalculator
             else
             {
                 ResultLabel.Content = $"{ResultLabel.Content}.";
+            }
+        }
+
+        private int number_negative;
+        private void ButtonNegative_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (ResultLabel.Content.ToString() == "0")
+            {
+                ResultLabel.Content = "0";
+            }
+            else
+            {
+                number_negative = int.Parse(ResultLabel.Content.ToString()!);
+                ResultLabel.Content = number_negative * -1;
             }
         }
     }
